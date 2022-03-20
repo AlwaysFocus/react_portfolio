@@ -5,7 +5,6 @@ export const client = sanityClient({
   // This is retrieved by going into the backend dir
   // and running 'sanity manage'
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
-
   dataset: "production",
   apiVersion: "2022-03-20",
   useCdn: true,
