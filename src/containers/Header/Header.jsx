@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import { AppWrap } from "../../wrapper";
 import { Images } from "../../constants";
 
 import "./Header.scss";
@@ -18,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div id="home" className="app__header app__flex">
+    <div className="app__header app__flex">
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -31,11 +32,11 @@ const Header = () => {
               <p className="p-text">Hello, I'm</p>
               <h1 className="head-text">Eli</h1>
             </div>
-        </div>
+          </div>
 
           <div className="tag-cmp app__flex">
             <p className="p-text">Developer</p>
-            <p className="p-text">Nomad</p>
+            <p className="p-text">Problem Solver</p>
           </div>
         </div>
       </motion.div>
@@ -45,10 +46,7 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img
-          src={Images.profilePic}
-          alt="profile_bg"
-        />
+        <img src={Images.profilePic} alt="profile_bg" />
         <motion.img
           src={Images.circle}
           alt="profile_circle"
@@ -72,4 +70,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AppWrap(Header, 'home');
