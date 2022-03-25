@@ -32,7 +32,7 @@ const Work = () => {
     const workQuery = '*[_type == "works"]';
 
     client.fetch(workQuery).then((workData) => {
-      console.log(workData);
+      
       setWorkContent(workData);
       setFilteredWork(workData);
     });
