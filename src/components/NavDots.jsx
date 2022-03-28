@@ -5,7 +5,8 @@ const links = [
   { name: "about", to: "#about", id: 2 },
   { name: "work", to: "#work", id: 3 },
   { name: "skills", to: "#skills", id: 4 },
-  { name: "contact", to: "#contact", id: 5 },
+  { name: "testimonial", to: "#testimonial", id: 5 },
+  { name: "contact", to: "#contact", id: 6 },
 ];
 
 const NavDots = ({ active }) => {
