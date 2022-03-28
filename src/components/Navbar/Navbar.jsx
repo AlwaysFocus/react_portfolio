@@ -12,7 +12,8 @@ const links = [
   { name: "about", to: "#about", id: 2 },
   { name: "work", to: "#work", id: 3 },
   { name: "skills", to: "#skills", id: 4 },
-  { name: "contact", to: "#contact", id: 5 },
+  { name: "testimonials", to: "#testimonial", id: 5 },
+  { name: "contact", to: "#contact", id: 6 },
 ];
 
 const linkVariants = {
@@ -39,15 +40,13 @@ const sideBarVariants = {
 const Navbar = () => {
   const [open, cycleOpen] = useCycle(false, true);
 
-
   return (
     <nav className="app__navbar">
       <motion.div
-       className="app__navbar-logo"
-       whileHover={{scale: 1.2}}
-       whileTap={{scale: 0.9}}
-       >
-
+        className="app__navbar-logo"
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+      >
         <img src={Images.eliLogo} alt="Logo" />
       </motion.div>
       <ul className="app__navbar-links">
@@ -61,11 +60,7 @@ const Navbar = () => {
 
       <div className="app__navbar-menu">
         {/* <HiMenuAlt4 onClick={cycleOpen} /> */}
-        <MenuButton
-          isOpen={open}
-          onClick={cycleOpen}
-          
-        />
+        <MenuButton isOpen={open} onClick={cycleOpen} />
         <AnimatePresence>
           {open && (
             <motion.div
@@ -75,21 +70,20 @@ const Navbar = () => {
                 width: 0,
                 transition: { delay: 0.7, duration: 0.2 },
               }}
-              
             >
               <motion.span
-                initial={{opacity: 1, scale: 0}}
-                animate={{scale: 1}}
+                initial={{ opacity: 1, scale: 0 }}
+                animate={{ scale: 1 }}
                 exit={{
                   opacity: 0,
-                  transition: {delay: 0.3, duration: 0.1}
+                  transition: { delay: 0.3, duration: 0.1 },
                 }}
               >
-              <MenuButton
-                isOpen={open}
-                onClick={cycleOpen}
-                transition={{duration: 0.1}}
-              />
+                <MenuButton
+                  isOpen={open}
+                  onClick={cycleOpen}
+                  transition={{ duration: 0.1 }}
+                />
               </motion.span>
               {/* <HiX onClick={cycleOpen} /> */}
 
