@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { HiMenuAlt4, HiX } from "react-icons/hi";
+import React from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 
 import { Images } from "../../constants";
@@ -23,12 +22,6 @@ const linkVariants = {
   open: { opacity: 1 },
 };
 const sideBarVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: -1,
-    },
-  },
   open: {
     transition: {
       staggerChildren: 0.2,
@@ -47,19 +40,22 @@ const Navbar = () => {
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
       >
+        <a href="#home">
         <img src={Images.eliLogo} alt="Logo" />
+        </a>
       </motion.div>
       <ul className="app__navbar-links">
-        {["home", "about", "work", "skills", "testimonials", "contact"].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
-          </li>
-        ))}
+        {["home", "about", "work", "skills", "testimonials", "contact"].map(
+          (item) => (
+            <li className="app__flex p-text" key={`link-${item}`}>
+              <div />
+              <a href={`#${item}`}>{item}</a>
+            </li>
+          )
+        )}
       </ul>
 
       <div className="app__navbar-menu">
-        {/* <HiMenuAlt4 onClick={cycleOpen} /> */}
         <MenuButton isOpen={open} onClick={cycleOpen} />
         <AnimatePresence>
           {open && (
@@ -68,7 +64,8 @@ const Navbar = () => {
               animate={{ width: 300 }}
               exit={{
                 width: 0,
-                transition: { delay: 0.7, duration: 0.2 },
+                opacity: 0,
+                transition: { delay: 0.2, duration: 0.2 },
               }}
             >
               <motion.span
@@ -76,7 +73,6 @@ const Navbar = () => {
                 animate={{ scale: 1 }}
                 exit={{
                   opacity: 0,
-                  transition: { delay: 0.3, duration: 0.1 },
                 }}
               >
                 <MenuButton
@@ -85,7 +81,6 @@ const Navbar = () => {
                   transition={{ duration: 0.1 }}
                 />
               </motion.span>
-              {/* <HiX onClick={cycleOpen} /> */}
 
               <motion.ul
                 initial="closed"
@@ -93,7 +88,6 @@ const Navbar = () => {
                 exit="closed"
                 variants={sideBarVariants}
               >
-                {/* {["home", "about", "work", "skills", "contact"].map((item) => ( */}
                 {links.map(({ name, to, id }) => (
                   <motion.li
                     variants={linkVariants}
