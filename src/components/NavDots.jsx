@@ -16,9 +16,10 @@ const NavDots = ({ active }) => {
         <a
           key={`link-${id}`}
           href={`${to}`}
+          
           className="app__navigation-dot"
           style={active === name ? { backgroundColor: "#313bac" } : {}}
-        />
+        > </a>
       ))}
     </div>
   );
